@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0xA314D915501CF46bE3d70a6781Cc7b8d1C5b1E09",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0xa314d915501cf46be3d70a6781cc7b8d1c5b1e09",
+  "NETWORK": {
+    "NAME": "Rinkeby",
+    "SYMBOL": "ETH",
+    "ID": 4
+  },
+  "NFT_NAME": "Voodoo Warriors",
+  "SYMBOL": "voodoo",
+  "MAX_SUPPLY": 2222,
+  "WEI_COST": 80000000000000000,
+  "DISPLAY_COST": 0.08,
+  "GAS_LIMIT": 300000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/",
+  "SHOW_BACKGROUND": true
+}
