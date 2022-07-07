@@ -233,7 +233,7 @@ function App() {
         flex={1}
         ai={"center"}
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
-        image={CONFIG.SHOW_BACKGROUND ? "/config/images/layered-peaks-haikei.svg" : null}
+        image={CONFIG.SHOW_BACKGROUND ? "/config/images/layered-peaks-haikei.png" : null}
       >
         <div style={{ maxWidth: '280px', zIndex: 1 }}>
           <img  src="/config/images/logo.png" style={{ width: '100%' }} />

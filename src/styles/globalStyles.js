@@ -90,6 +90,6 @@ export const ContainerWrapper = styled.div`
     background-size: cover;
     background-position: center;
     opacity: 0.3;
-    filter: blur(4px);
+    filter: blur(1px);
   }
 `;
