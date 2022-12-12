@@ -34,22 +34,12 @@ export const fetchData = () => {
         .blockchain.smartContract.methods.cost()
         .call();
 
-      let presale_cost = await store
-        .getState()
-        .blockchain.smartContract.methods.presale_price()
-        .call();
-
-      let presale = await store
-        .getState()
-        .blockchain.smartContract.methods.presale()
-        .call();
-      
       let maxSupply = await store
         .getState()
-        .blockchain.smartContract.methods._maxSupply()
+        .blockchain.smartContract.methods.maxSupply()
         .call();
 
-      let cost = presale ? presale_cost : public_cost
+      let cost = public_cost
 
       dispatch(
         fetchDataSuccess({

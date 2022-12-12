@@ -3,7 +3,7 @@ import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
  
 // log
 import { fetchData } from "../data/dataActions";
@@ -57,10 +57,17 @@ export const connect = () => {
         
     try {
       const providerOptions = {
+        coinbasewallet: {
+          package: CoinbaseWalletSDK, 
+          options: {
+            appName: "Dope Degrains",
+            infuraId: "f976dc1369614fefbc1f1d9fa1911889" 
+          }
+        }, 
         walletconnect: {
           package: WalletConnectProvider,
           options: {
-            infuraId: "0cf428902c684bb79b7f88ac18ceaa48"
+            infuraId: "f976dc1369614fefbc1f1d9fa1911889"
           }
         }
       };

@@ -89,7 +89,7 @@ export const ContainerWrapper = styled.div`
     background-image: ${({ image }) => (image ? `url(${image})` : "none")};
     background-size: cover;
     background-position: center;
-    opacity: 0.3;
-    filter: blur(1px);
+    opacity: 0.5;
+    filter: blur(2px);
   }
 `;

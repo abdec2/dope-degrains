@@ -9,7 +9,7 @@ const Footer = () => {
         <footer className="footer" > 
             <div className="div1">
                 <div  className="div2">
-                    <p className="copyright">© {new Date().getFullYear()} Voodoo Warriors
+                    <p className="copyright">© {new Date().getFullYear()} Dope Degrains
                     </p>
                     <span className="icons">
                         <a href="https://facebook.com" target="blank" style={{color: 'rgb(107 114 128)'}} className="cursor-pointer" >
@@ -36,7 +36,7 @@ const Footer = () => {
                         </a> */}
                     </span>
                     <p className=" text-xs poweredby">Powered by:&nbsp;
-                        <a href="#" target="blank" className="poweredby-link"><i>bRd Digitech</i></a>
+                        <a href="http://brdigitech.com/" target="blank" className="poweredby-link"><i>bRd Digitech</i></a>
                     </p>
                 </div>
             </div>

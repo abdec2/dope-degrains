@@ -1,18 +1,18 @@
 {
-  "CONTRACT_ADDRESS": "0x88e8688902AEeDf5D85c8F5Ca0518D9a691dF701",
-  "SCAN_LINK": "https://etherscan.io/address/0x88e8688902aeedf5d85c8f5ca0518d9a691df701",
+  "CONTRACT_ADDRESS": "0x25845c4e7bE9e8DFA21C7c259F0E0CAb6EDD5B9b",
+  "SCAN_LINK": "https://goerli.etherscan.io/address/0x25845c4e7bE9e8DFA21C7c259F0E0CAb6EDD5B9b",
   "NETWORK": {
-    "NAME": "Ethereum Mainnet",
+    "NAME": "Goerli Testnet",
     "SYMBOL": "ETH",
-    "ID": 1
+    "ID": 5
   },
-  "NFT_NAME": "Voodoo Warriors",
-  "SYMBOL": "voodoo",
-  "MAX_SUPPLY": 2222,
-  "WEI_COST": 80000000000000000,
-  "DISPLAY_COST": 0.08,
+  "NFT_NAME": "Dope Degrains",
+  "SYMBOL": "DDGRNS",
+  "MAX_SUPPLY": 5000,
+  "WEI_COST": 250000000000000000,
+  "DISPLAY_COST": 0.25,
   "GAS_LIMIT": 300000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://opensea.io/",
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/",
   "SHOW_BACKGROUND": true
 }

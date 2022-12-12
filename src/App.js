@@ -148,36 +148,43 @@ function App() {
   //   return 'ontouchstart' in window || 'onmsgesturechange' in window;
   // }
 
-  const claimNFTs = () => {
-    let cost = data.cost;
-    let gasLimit = CONFIG.GAS_LIMIT;
-    let totalCostWei = String(cost * mintAmount);
-    let totalGasLimit = String(gasLimit * mintAmount);
-    console.log("Cost: ", totalCostWei);
-    console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
-    setClaimingNft(true);
-    blockchain.smartContract.methods
-      .mint(mintAmount)
-      .send({
-        gasLimit: String(totalGasLimit),
-        to: CONFIG.CONTRACT_ADDRESS,
-        from: blockchain.account,
-        value: totalCostWei,
-      })
-      .once("error", (err) => {
-        console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
-        setClaimingNft(false);
-      })
-      .then((receipt) => {
-        console.log(receipt);
-        setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
-        );
-        setClaimingNft(false);
-        dispatch(fetchData(blockchain.account));
-      });
+  const claimNFTs = async () => {
+    try {
+      let cost = data.cost;
+      let gasLimit = CONFIG.GAS_LIMIT;
+      let totalCostWei = String(cost * mintAmount);
+      let totalGasLimit = String(gasLimit * mintAmount);
+      console.log("Cost: ", totalCostWei);
+      console.log("Gas limit: ", totalGasLimit);
+      setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
+      setClaimingNft(true);
+      const estimateGas = await blockchain.smartContract.methods.mint(mintAmount).estimateGas({ to: CONFIG.CONTRACT_ADDRESS, from: blockchain.account, value: totalCostWei })
+
+      blockchain.smartContract.methods
+        .mint(mintAmount)
+        .send({
+          gasLimit: String(estimateGas),
+          to: CONFIG.CONTRACT_ADDRESS,
+          from: blockchain.account,
+          value: totalCostWei,
+        })
+        .once("error", (err) => {
+          console.log(err);
+          setFeedback("Sorry, something went wrong please try again later.");
+          setClaimingNft(false);
+        })
+        .then((receipt) => {
+          console.log(receipt);
+          setFeedback(
+            `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+          );
+          setClaimingNft(false);
+          dispatch(fetchData(blockchain.account));
+        });
+    } catch(e) {
+      setFeedback("Sorry, something went wrong please try again later.");
+          setClaimingNft(false);
+    }
   };
 
   const decrementMintAmount = () => {
@@ -233,10 +240,10 @@ function App() {
         flex={1}
         ai={"center"}
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
-        image={CONFIG.SHOW_BACKGROUND ? "/config/images/layered-peaks-haikei.png" : null}
+        image={CONFIG.SHOW_BACKGROUND ? "/config/images/collage.jpg" : null}
       >
         <div style={{ maxWidth: '280px', zIndex: 1 }}>
-          <img  src="/config/images/logo.png" style={{ width: '100%' }} />
+          <img src="/config/images/email-logo.svg" style={{ width: '100%' }} />
         </div>
         <s.SpacerLarge />
         <ResponsiveWrapper style={{ padding: 24, zIndex: 1 }} >
@@ -298,7 +305,7 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  1 {CONFIG.SYMBOL} costs { (data.cost !== 0) ? Web3.utils.fromWei(data.cost) : CONFIG.DISPLAY_COST}{" "}
+                  1 {CONFIG.SYMBOL} costs {(data.cost !== 0) ? Web3.utils.fromWei(data.cost) : CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}
                 </s.TextTitle>
                 <s.SpacerXSmall />
@@ -415,7 +422,7 @@ function App() {
                         {claimingNft ? "BUSY" : "BUY"}
                       </StyledButton>
                       <StyledLink2
-                        target={"_blank"} href={CONFIG.MARKETPLACE_LINK+blockchain.account}
+                        target={"_blank"} href={CONFIG.MARKETPLACE_LINK + blockchain.account}
                       >
                         Opensea
                       </StyledLink2>
