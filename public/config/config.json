@@ -1,10 +1,10 @@
 {
-  "CONTRACT_ADDRESS": "0x25845c4e7bE9e8DFA21C7c259F0E0CAb6EDD5B9b",
-  "SCAN_LINK": "https://goerli.etherscan.io/address/0x25845c4e7bE9e8DFA21C7c259F0E0CAb6EDD5B9b",
+  "CONTRACT_ADDRESS": "0x840E6F41Fd7BCB424a2D4768CEF8945E048426C4",
+  "SCAN_LINK": "https://etherscan.io/address/0x840e6f41fd7bcb424a2d4768cef8945e048426c4",
   "NETWORK": {
-    "NAME": "Goerli Testnet",
+    "NAME": "Ethereum Mainnet",
     "SYMBOL": "ETH",
-    "ID": 5
+    "ID": 1
   },
   "NFT_NAME": "Dope Degrains",
   "SYMBOL": "DDGRNS",
@@ -13,6 +13,6 @@
   "DISPLAY_COST": 0.25,
   "GAS_LIMIT": 300000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://testnets.opensea.io/",
+  "MARKETPLACE_LINK": "https://opensea.io/",
   "SHOW_BACKGROUND": true
 }
